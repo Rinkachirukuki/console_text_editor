@@ -10,6 +10,8 @@ namespace console_text_editor
     {
         public List<ICommand> Commands;
 
+        public Stack<ICommand> CommandsHistory;
+
         public string InputString;
         public string BufferString;
 
@@ -18,27 +20,30 @@ namespace console_text_editor
             InputString = inputString;
             BufferString = "";
             Commands = new List<ICommand>();
+            CommandsHistory = new Stack<ICommand>();
         }
         public Application(string inputString, List<ICommand> commands)
         {
             InputString = inputString;
             BufferString = "";
             Commands = commands;
+            CommandsHistory = new Stack<ICommand>();
         }
         public void ExecuteCommand(ICommand command)
         {
             command.Execute();
+
+            if(!((command is CopyCommand) || (command is UndoCommand) || (command is RedoCommand))) {
+                CommandsHistory.Push(command);
+            }
+               
         }
 
         public void ExecuteAll()
         {
             foreach (ICommand c in Commands)
-                c.Execute();
+                ExecuteCommand(c);
         }
-
-
-
-        
 
     }
 }

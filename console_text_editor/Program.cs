@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,27 +13,32 @@ namespace ConsoleTextEditor
     {
         static void Main(string[] args)
         {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
 
-            Application application = new Application("sa1sa1sa1sa1");
+            Application application = new Application(Parser.ParseInputString("InputString.txt"));
 
-            application.Commands.Add(new CopyCommand(application, 0, 12));
+            application.Commands = Parser.ParseInputCommands(application, "InputCommands.txt");
 
-            application.Commands.Add(new PasteCommand(application, 12));
-
-            application.Commands.Add(new EraseCommand(application, 16,18));
-
-            application.Commands.Add(new InsertCommand(application, 16, "!!!"));
-
-            application.Commands.Add(new InsertCommand(application, 16, "111"));
-
-            application.Commands.Add(new InsertCommand(application, 16, "!!!"));
+            Console.WriteLine(application.InputString);
 
             application.ExecuteAll();
 
             Console.WriteLine(application.InputString);
 
+            SaveFile(application);
+
             Console.ReadKey();
             
+        }
+
+        static void SaveFile(Application application)
+        {
+            StreamWriter sw = new StreamWriter("OutputString.txt");
+
+            sw.WriteLine(application.InputString);
+
+            sw.Close();
         }
     }
 }

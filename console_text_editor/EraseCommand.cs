@@ -10,25 +10,31 @@ namespace console_text_editor
     {
         private Application application;
 
-        private int fromPosition;
-        private int toPosition;
+        public int FromPosition;
+        public int ToPosition;
 
-        public EraseCommand(Application application, int fromPosition, int toPostion)
+        public string OldInputString;
+
+        public EraseCommand(Application application, int fromPosition, int toPosition)
         {
             this.application = application;
-            this.fromPosition = fromPosition;
-            this.toPosition = toPostion;
+            this.FromPosition = fromPosition;
+            this.ToPosition = toPosition;
+
+            OldInputString = "";
         }
         public override void Execute()
         {
-            if (fromPosition > toPosition || fromPosition > application.InputString.Length || toPosition > application.InputString.Length)
+            if (FromPosition > ToPosition || FromPosition > application.InputString.Length || ToPosition > application.InputString.Length)
             {
-                Console.WriteLine("Error  | Out of string range in [Delete " + fromPosition + " " + toPosition + "]");
+                Console.WriteLine("Error  | Out of string range in [Delete " + FromPosition + " " + ToPosition + "]");
                 return;
             }
 
-            Console.WriteLine("Erase  | From position: " + fromPosition + " to: " + toPosition);
-            application.InputString = application.InputString.Remove(fromPosition, toPosition - fromPosition);
+            OldInputString = application.InputString;
+
+            Console.WriteLine("Erase  | From position: " + FromPosition + " to: " + ToPosition);
+            application.InputString = application.InputString.Remove(FromPosition, ToPosition - FromPosition);
         }
 
     }

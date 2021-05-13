@@ -10,23 +10,29 @@ namespace console_text_editor
     {
         private Application application;
 
-        private int position;
+        public int Position;
+
+        public string OldInputString;
 
         public PasteCommand(Application application, int position)
         {
             this.application = application;
-            this.position = position;
+            this.Position = position;
+
+            OldInputString = "";
         }
         public override void Execute()
         {
-            if (position > application.InputString.Length)
+            if (Position > application.InputString.Length)
             {
-                Console.WriteLine("Error  | Out of string range in [Paste " + position + "]");
+                Console.WriteLine("Error  | Out of string range in [Paste " + Position + "]");
                 return;
             }
 
-            Console.WriteLine("Paste  | At position: " + position);
-            application.InputString = application.InputString.Insert(position, application.BufferString);
+            OldInputString = application.BufferString;
+
+            Console.WriteLine("Paste  | At position: " + Position);
+            application.InputString = application.InputString.Insert(Position, application.BufferString);
         }
     }
 }

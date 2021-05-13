@@ -8,6 +8,8 @@ namespace console_text_editor
 {
     class ICommand
     {
-        public virtual void Execute() { }
+        public virtual void Execute() { 
+            Console.WriteLine("Error  | Execute function not implemented");
+        }
     }
 }

@@ -1,0 +1,4 @@
+copy 29, 38
+delete 29, 38
+paste 0
+undo
