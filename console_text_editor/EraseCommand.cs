@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace console_text_editor
 {
-    class CopyCommand : ICommand
+    class EraseCommand : ICommand
     {
         private Application application;
 
         private int fromPosition;
         private int toPosition;
 
-        public CopyCommand(Application application, int fromPosition, int toPostion)
+        public EraseCommand(Application application, int fromPosition, int toPostion)
         {
             this.application = application;
             this.fromPosition = fromPosition;
@@ -23,14 +23,13 @@ namespace console_text_editor
         {
             if (fromPosition > toPosition || fromPosition > application.InputString.Length || toPosition > application.InputString.Length)
             {
-                Console.WriteLine("Error  | Out of string range in [Copy " + fromPosition + " " + toPosition + "]");
+                Console.WriteLine("Error  | Out of string range in [Delete " + fromPosition + " " + toPosition + "]");
                 return;
             }
 
-            Console.WriteLine("Copy   | From position: " + fromPosition + " to: " + toPosition);
-            application.BufferString = application.InputString.Substring(fromPosition, toPosition);
+            Console.WriteLine("Erase  | From position: " + fromPosition + " to: " + toPosition);
+            application.InputString = application.InputString.Remove(fromPosition, toPosition - fromPosition);
         }
-
 
     }
 }

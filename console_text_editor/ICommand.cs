@@ -8,6 +8,6 @@ namespace console_text_editor
 {
     class ICommand
     {
-        public void Execute() { }
+        public virtual void Execute() { }
     }
 }

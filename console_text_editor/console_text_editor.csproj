@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="CopyCommand.cs" />
+    <Compile Include="EraseCommand.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="InsertCommand.cs" />
+    <Compile Include="PasteCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

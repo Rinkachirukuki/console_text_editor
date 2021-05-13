@@ -1,0 +1,7 @@
+F:\Files\GitHub\console_text_editor\console_text_editor\bin\Debug\console_text_editor.exe.config
+F:\Files\GitHub\console_text_editor\console_text_editor\bin\Debug\console_text_editor.exe
+F:\Files\GitHub\console_text_editor\console_text_editor\bin\Debug\console_text_editor.pdb
+F:\Files\GitHub\console_text_editor\console_text_editor\obj\Debug\console_text_editor.csprojAssemblyReference.cache
+F:\Files\GitHub\console_text_editor\console_text_editor\obj\Debug\console_text_editor.csproj.CoreCompileInputs.cache
+F:\Files\GitHub\console_text_editor\console_text_editor\obj\Debug\console_text_editor.exe
+F:\Files\GitHub\console_text_editor\console_text_editor\obj\Debug\console_text_editor.pdb
