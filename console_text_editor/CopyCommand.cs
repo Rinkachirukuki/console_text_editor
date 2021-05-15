@@ -21,14 +21,14 @@ namespace console_text_editor
         }
         public override void Execute()
         {
-            if (fromPosition > toPosition || fromPosition > application.InputString.Length || toPosition > application.InputString.Length)
+            if (fromPosition >= toPosition || fromPosition >= application.InputString.Length || toPosition >= application.InputString.Length)
             {
                 Console.WriteLine("Error  | Out of string range in [Copy " + fromPosition + " " + toPosition + "]");
                 return;
             }
 
             Console.WriteLine("Copy   | From position: " + fromPosition + " to: " + toPosition);
-            application.BufferString = application.InputString.Substring(fromPosition, toPosition);
+            application.BufferString = application.InputString.Substring(fromPosition, toPosition - fromPosition + 1);
         }
 
 

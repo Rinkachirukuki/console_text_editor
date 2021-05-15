@@ -1,4 +1,15 @@
-copy 29, 38
-delete 29, 38
+copy 0, 10
+delete 0, 5
 paste 0
+insert "1AA", 9
+insert "2AA", 9
+insert "3AA", 9
 undo
+copy 5, 10
+paste 0
+redo
+redo
+copy 0, 1000
+delete 0, 1000
+slds
+insert "1sssd", 7777

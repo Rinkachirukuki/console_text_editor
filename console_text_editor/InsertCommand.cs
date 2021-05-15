@@ -26,7 +26,7 @@ namespace console_text_editor
         }
         public override void Execute()
         {
-            if (Position > application.InputString.Length)
+            if (Position >= application.InputString.Length)
             {
                 Console.WriteLine("Error  | Out of string range in [Paste " + Position + "]");
                 return;

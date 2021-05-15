@@ -25,7 +25,7 @@ namespace console_text_editor
         }
         public override void Execute()
         {
-            if (FromPosition > ToPosition || FromPosition > application.InputString.Length || ToPosition > application.InputString.Length)
+            if (FromPosition >= ToPosition || FromPosition >= application.InputString.Length || ToPosition >= application.InputString.Length)
             {
                 Console.WriteLine("Error  | Out of string range in [Delete " + FromPosition + " " + ToPosition + "]");
                 return;
@@ -34,7 +34,7 @@ namespace console_text_editor
             OldInputString = application.InputString;
 
             Console.WriteLine("Erase  | From position: " + FromPosition + " to: " + ToPosition);
-            application.InputString = application.InputString.Remove(FromPosition, ToPosition - FromPosition);
+            application.InputString = application.InputString.Remove(FromPosition, ToPosition - FromPosition + 1);
         }
 
     }
